@@ -1,28 +1,27 @@
 # KN `gen` Static Site Generator CmdBox Tool
 
-See <https://github.com/rwxrob/cmdbox> and [`cmd.go`](cmd.go) for details.
 
 ![WIP](https://img.shields.io/badge/status-wip-red.svg)
 [![GoDoc](https://godoc.org/cmdbox-gen?status.svg)](https://godoc.org/cmdbox-gen)
-[![License](https://img.shields.io/badge/license-MPLv2-brightgreen.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/cmdbox-gen)](https://goreportcard.com/report/cmdbox-gen)
 [![Coverage](https://gocover.io/_badge/cmdbox-gen)](https://gocover.io/cmdbox-gen)
 
-The `gen` CmdBox tool generates the `index.html` and (optionally)
-`README.md` from [KEG](https://keg.sh) `data.yml` and `README.md`
-content and other optional external sources using the same
-high-performance [Goldmark](https://github.com/yuin/goldmark) Markdown
-engine and Go templating that [Hugo](https://gohugo.com) uses. Unlike
-Hugo, however, each KEG node is independently generated in parallel
-making `gen` the fastest and most extensible static site generator in
-the world. (But that will be our little secret. We aren't into
-over-branding and marketing hype. Word of mouth gets it done. Spread the
-word to those you care about. Let the rest suffer.)
+The `gen` [CmdBox](https://github.com/rwxrob/cmdbox) tool generates the
+`index.html` and sometimes the `README.md` from [KEG](https://keg.sh)
+`data.yml` and `README.md` content and other optional external sources
+using the same high-performance
+[Goldmark](https://github.com/yuin/goldmark) Markdown engine and [Go
+templating](https://golang.org/pkg/text/template/) that
+[Hugo](https://gohugo.com) uses. Unlike Hugo, however, each KEG node is
+independently generated in parallel making `gen` the fastest and most
+extensible static site generator in the world. (But that might just be our
+little secret. We aren't into silly branding and marketing hype.)
 
 ## Also Known As
 
-Most will install `gen` as just that, but it is fundamentally included
-in the [`kn` KEG](https://keg.sh) tool (`kn gen`) and so has garnered the
+Most will install `gen` as just that, but since it is included
+in `kn`, the [KEG](https://keg.sh) tool as `kn gen` is has garnered the
 moniker *Kngen* pronounced "KEN-gen" (with a schwa between the `k` and
 `n` with heavy emphasis on the first syllable, almost like "Cajun" but
 starting with "ken" instead).
@@ -51,6 +50,11 @@ starting with "ken" instead).
 * `<root>/.gen` generally has defaults
 * `<root>` = `$GENROOT` || grandparent with `.git` || `$PWD`
 
+## Examples
+
+[Examples](testdata/examples) can be found within the `testdata`
+directory.
+
 ## Reserved Fields `.gen/config`
 
 Note that usually reserved fields will be in the root-level `data.yml`
@@ -61,10 +65,10 @@ file.
 
 ## Design Decisions
 
-* Data driven by design, views, not blogs
-* Zero configuration, must just work by convention
+* Data driven by design, views over blogs
+* Zero configuration, just works by convention
 * No support for PDF since web browser support covers it
-* Sustainable and extensible
+* Sustainable and extensible without sacrificing performance
 
 ## Legal Considerations
 
